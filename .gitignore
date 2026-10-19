@@ -237,3 +237,4 @@ data/
 
 # macOS files
 .DS_Store
+runs/
