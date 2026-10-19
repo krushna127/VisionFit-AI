@@ -218,3 +218,22 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Python virtual environment
+.venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Downloaded model weights
+*.pt
+
+# Local datasets and videos
+data/
+*.mp4
+*.mov
+
+# macOS files
+.DS_Store
