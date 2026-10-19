@@ -1,18 +1,14 @@
-
 import csv
+from math import isfinite
 from pathlib import Path
 
-from cv.features.joint_angles import (
-    calculate_angle,
-    calculate_curl_angles,
-    calculate_squat_angles,
-)
+from cv.features.joint_angles import calculate_angle
 
 CONFIDENCE_THRESHOLD = 0.25
 
 
 def get_landmark(row, name):
-    """Return a landmark coordinate only when its confidence is sufficient."""
+    """Return valid pixel coordinates only when confidence is sufficient."""
     try:
         x = float(row[f"{name}_x"])
         y = float(row[f"{name}_y"])
@@ -20,11 +16,16 @@ def get_landmark(row, name):
     except (KeyError, TypeError, ValueError):
         return None
 
+    if not all(isfinite(value) for value in (x, y, confidence)):
+        return None
+
+    if not 0.0 <= confidence <= 1.0:
+        return None
+
     if confidence < CONFIDENCE_THRESHOLD:
         return None
 
     return (x, y)
-
 
 def main():
     project_root = Path(__file__).resolve().parents[2]

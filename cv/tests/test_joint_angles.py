@@ -1,4 +1,4 @@
-
+from cv.features.export_joint_angles import get_landmark
 import unittest
 
 from cv.features.joint_angles import (
@@ -55,6 +55,34 @@ class TestJointAngles(unittest.TestCase):
 
         self.assertIsNone(angles["left_elbow_angle_deg"])
         self.assertIsNone(angles["right_elbow_angle_deg"])
+
+    def test_low_confidence_landmark_is_rejected(self):
+        row = {
+            "hip_x": "10",
+            "hip_y": "20",
+            "hip_confidence": "0.1",
+        }
+        self.assertIsNone(get_landmark(row, "hip"))
+
+    def test_invalid_landmark_values_are_rejected(self):
+        base = {
+            "hip_x": "10",
+            "hip_y": "20",
+            "hip_confidence": "0.9",
+        }
+
+        self.assertEqual(get_landmark(base, "hip"), (10.0, 20.0))
+
+        self.assertIsNone(
+            get_landmark({**base, "hip_x": "nan"}, "hip")
+        )
+        self.assertIsNone(
+            get_landmark({**base, "hip_confidence": "nan"}, "hip")
+        )
+        self.assertIsNone(
+            get_landmark({**base, "hip_confidence": "1.2"}, "hip")
+        )
+        self.assertIsNone(get_landmark({}, "hip"))
 
 
 if __name__ == "__main__":
