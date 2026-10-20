@@ -238,3 +238,64 @@ data/
 # macOS files
 .DS_Store
 runs/
+
+
+# ==============================
+# Datasets - do not upload
+# ==============================
+datasets/
+dataset/
+data/
+MM-Fit/
+mm-fit/
+*.csv
+*.parquet
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.pkl
+*.pickle
+
+# ==============================
+# Python generated files
+# ==============================
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+env/
+
+# ==============================
+# Local environment and secrets
+# ==============================
+.env
+.env.*
+!.env.example
+
+# ==============================
+# IDE and OS files
+# ==============================
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+# MM-Fit dataset files
+*.npy
+*.npz
+
+# Dataset directories
+dataset/
+
+# Dataset folders
+data/
+dataset/
+datasets/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# Virtual environments
+venv/
+.venv/
