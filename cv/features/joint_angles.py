@@ -1,9 +1,7 @@
-
 from math import acos, degrees
 from typing import Optional, Sequence
 
 import numpy as np
-
 
 def calculate_angle(
     point_a: Sequence[float],
