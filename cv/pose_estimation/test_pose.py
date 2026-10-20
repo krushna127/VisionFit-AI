@@ -1,10 +1,8 @@
-
 import csv
 from pathlib import Path
 
 import cv2
 from ultralytics import YOLO
-
 
 KEYPOINT_NAMES = [
     "nose",
@@ -157,6 +155,7 @@ def main():
         cap.release()
         if video_writer is not None:
             video_writer.release()
+
 
     print("Keypoint extraction completed.")
     print(f"Frames processed: {processed_frames}")
