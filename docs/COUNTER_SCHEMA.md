@@ -60,18 +60,3 @@
 - Standing threshold: `155°`.
 - These thresholds were used to distinguish the lowered squat position from the standing position.
 
-## 5. Squat Repetition-Counter Testing
-
-**Test file:** `test_mmfit_squat_counter.py`
-
-- Tested the counter against three labeled squat sets.
-- Compared expected repetitions with detected repetitions.
-
-| Set | Expected Reps | Detected Reps | Result |
-|---:|---:|---:|---|
-| 1 | 10 | 10 | Match |
-| 2 | 10 | 10 | Match |
-| 3 | 10 | 10 | Match |
-| **Total** | **30** | **30** | **Match** |
-
-**Test Result:** All three tested sets matched their annotated repetition counts, with 30 expected repetitions and 30 detected repetitions. This result applies to the tested sets and does not, by itself, establish generalization to other participants or sessions.
