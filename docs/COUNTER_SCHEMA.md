@@ -91,3 +91,44 @@
 - **Purpose:** Test whether the squat counter generalizes to additional MM-Fit sessions.
 - **Working:** Validate performance across sessions beyond the initial test without changing the thresholds.
 - **Previously reported result:** Sessions `w02` and `w03` achieved 6/6 exact set matches and 60/60 repetitions combined.
+
+## 7. Insights from Full-Dataset Testing
+
+After testing the fixed-threshold squat counter across 21 MM-Fit sessions, the following insights were identified.
+
+### a. Consistent Repetition Counting
+- All 64 labeled squat sets matched their expected repetition counts.
+- The counter detected 639 repetitions against 639 expected repetitions.
+- No counting errors were reported in the evaluated sets.
+
+### b. Performance Across Sessions
+- The evaluation covered 21 sessions (`w00`–`w20`).
+- Most sessions contained three labeled squat sets.
+- Session `w17` contained four sets, including sets with different annotated repetition counts.
+- All evaluated sets matched their expected counts.
+
+### c. Fixed-Threshold Performance
+- The counter used a squat threshold of `120°` and a standing threshold of `155°`.
+- The same thresholds were used across all evaluated sessions.
+- These results indicate consistent performance on the evaluated dataset.
+- Independent testing is still required to establish generalization to unseen participants and recording conditions.
+
+### d. Pose Data Availability
+- All 64 labeled squat sets had usable pose data.
+- No sets were reported as missing pose data.
+- All identified squat sets were included in the evaluation.
+
+### e. Evaluation Metrics
+
+| Metric | Result |
+|---|---:|
+| Sessions Evaluated | 21 |
+| Labeled Squat Sets | 64 |
+| Exact Set Matches | 64/64 |
+| Expected Repetitions | 639 |
+| Detected Repetitions | 639 |
+| Exact Set-Match Rate | 100% |
+| Total Absolute Count Error | 0 |
+| Mean Absolute Error (MAE) | 0 repetitions per set |
+
+These metrics measure agreement between detected repetition counts and MM-Fit annotations. They do not measure individual repetition timing or exercise-form accuracy.
